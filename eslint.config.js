@@ -8,6 +8,20 @@ export default defineConfig([
   {
     name: 'app/files-to-lint',
     files: ['**/*.{js,mjs,jsx,vue}'],
+    rules: {
+      "no-unused-vars": 'warn',
+      'no-console': 'warn',
+      'no-debugger': 'warn',
+      'vue/multi-word-component-names': 'off',
+      'prettier/prettier': [
+        'warn',
+        {
+          singleQuote: true,
+          semi: true,
+          trailingComma: 'es5',
+        },
+      ],
+    },
   },
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),

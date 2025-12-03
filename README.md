@@ -1,4 +1,6 @@
 # vue-project
+node版本：v20.11.1
+npm版本： 10.2.4
 
 ## Project Setup
 

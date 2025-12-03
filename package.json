@@ -16,6 +16,7 @@
   "dependencies": {
     "element-plus": "^2.11.9",
     "pinia": "^3.0.4",
+    "sass": "1.77.5",
     "vue": "^3.5.25",
     "vue-router": "^4.6.3"
   },
