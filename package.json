@@ -29,8 +29,10 @@
     "eslint-plugin-vue": "~10.5.1",
     "fast-glob": "^3.3.3",
     "globals": "^16.5.0",
+    "mockjs": "^1.1.0",
     "prettier": "3.6.2",
     "vite": "^7.2.4",
+    "vite-plugin-mock": "^3.0.2",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-devtools": "^8.0.5"
   }

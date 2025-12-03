@@ -1,10 +1,10 @@
 <template>
   <h1>You did it!</h1>
-  <div>
-    <svg-icon name="jijian" color="#fff" hight="500px" width="500px"></svg-icon>
-  </div>
+  <div>mock 数据</div>
 </template>
 <script setup>
-import SvgIcon from '@/components/SvgIcon/index.vue'
+axios.get('/api/user/info').then((res) => {
+  console.log(res.data)
+})
 </script>
 <style scoped></style>
