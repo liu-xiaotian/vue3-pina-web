@@ -1,17 +1,10 @@
-<script setup></script>
-
 <template>
   <h1>You did it!</h1>
-  <div class="button-example">
-    <div class="button-row">
-      <el-button>Default</el-button>
-      <el-button type="primary">Primary</el-button>
-      <el-button type="success">Success</el-button>
-      <el-button type="info">Info</el-button>
-      <el-button type="warning">Warning</el-button>
-      <el-button type="danger">Danger</el-button>
-    </div>
+  <div>
+    <svg-icon name="jijian" color="#fff" hight="500px" width="500px"></svg-icon>
   </div>
 </template>
-
+<script setup>
+import SvgIcon from '@/components/SvgIcon/index.vue'
+</script>
 <style scoped></style>
