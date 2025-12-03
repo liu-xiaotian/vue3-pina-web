@@ -1,10 +1,13 @@
 <template>
-  <h1>You did it!</h1>
-  <div>mock 数据</div>
+  <h1>axios 调用</h1>
 </template>
 <script setup>
-axios.get('/api/user/info').then((res) => {
-  console.log(res.data)
+import { getUserList } from './api/user'
+import { onMounted } from 'vue'
+
+onMounted(async () => {
+  const res = await getUserList()
+  console.log(res)
 })
 </script>
 <style scoped></style>
