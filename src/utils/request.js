@@ -1,8 +1,10 @@
 import axios from 'axios'
 
+const BASE_URL = import.meta.env.VITE_BASE_API
+
 //创建axios实例
 const service = axios.create({
-  baseURL: '/api',
+  baseURL: BASE_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json'
