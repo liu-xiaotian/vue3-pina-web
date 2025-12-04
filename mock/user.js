@@ -1,3 +1,5 @@
+import md5 from 'md5'
+
 export default [
   {
     url: '/api/user/login',
@@ -5,7 +7,7 @@ export default [
     response: ({ body }) => {
       const { username, password } = body
       const checkUser = getUser().find(
-        (item) => item.username === username && item.password === password
+        (item) => item.username === username && md5(item.password) === password
       )
       if (!checkUser) {
         return {
@@ -31,7 +33,7 @@ function getUser() {
       avatar:
         'https://i2.hdslb.com/bfs/face/27b3ae362890a3fbeb50f70b4cd62566d0e72374.jpg@128w_128h_1c_1s.webp',
       rules: '管理员',
-      token: 'token'
+      token: crypto.randomUUID()
     }
   ]
 }
