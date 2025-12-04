@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <el-form class="login-form" :model="loginForm" :rules="loginRules">
+    <el-form class="login-form" :model="loginForm" :rules="loginRules" ref="loginRef">
       <div class="title-container">
         <h3 class="title">用户登录</h3>
       </div>
@@ -30,7 +30,7 @@
         </span>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" class="btn" @click="login">登录</el-button>
+        <el-button type="primary" class="btn" @click="login" :loading="loading">登录</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -39,6 +39,7 @@
 import { ref } from 'vue'
 import SvgIcon from '@/components/SvgIcon/index.vue'
 import { useUserStore } from '@/stores/user'
+import { ElMessage } from 'element-plus'
 let useStore = useUserStore()
 
 //model rules prop
@@ -88,9 +89,24 @@ const changePwdType = () => {
   }
 }
 
+const loginRef = ref(null)
+const loading = ref(false)
 //登录逻辑
 const login = () => {
-  useStore.userLogin(loginForm)
+  loginRef.value.validate((valid) => {
+    if (!valid) return
+    loading.value = true
+    useStore
+      .userLogin(loginForm)
+      .then(() => {
+        loading.value = false
+        ElMessage.success('登录成功 🎉🎉🎉')
+      })
+      .catch(() => {
+        loading.value = false
+        ElMessage.error('登录失败 🤔🤔🤔')
+      })
+  })
 }
 </script>
 <style lang="scss" scoped>

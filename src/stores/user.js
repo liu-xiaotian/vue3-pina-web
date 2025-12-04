@@ -1,20 +1,23 @@
 import { defineStore } from 'pinia'
 import { login } from '@/api/user'
 export const useUserStore = defineStore('user', {
-  state: () => ({}),
+  state: () => ({
+    token: ''
+  }),
   getters: {},
   actions: {
     async userLogin(loginForm) {
-      //TODO:登录
-      try {
-        const loginData = {
-          username: loginForm.value.username,
-          password: loginForm.value.password
-        }
-        const res = await login(loginData)
-        console.log(res)
-      } catch (error) {
-        console.error('登录失败')
+      const loginData = {
+        username: loginForm.value.username,
+        password: loginForm.value.password
+      }
+      const res = await login(loginData)
+
+      if (res.code === 200) {
+        this.token = res.data.token
+        return 'success'
+      } else {
+        return Promise.reject(new Error(res.data.message))
       }
     }
   }
