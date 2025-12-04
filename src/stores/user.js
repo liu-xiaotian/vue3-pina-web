@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { login } from '@/api/user'
 import md5 from 'md5'
 import { setItem, getItem } from '@/utils/storage'
+import router from '@/router/index'
 export const useUserStore = defineStore('user', {
   state: () => ({
     token: getItem('token')
@@ -19,6 +20,7 @@ export const useUserStore = defineStore('user', {
         let token = res.data.token
         this.token = token
         setItem('token', token)
+        router.push('/home')
         return 'success'
       } else {
         return Promise.reject(new Error(res.data.message))

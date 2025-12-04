@@ -11,6 +11,9 @@ import 'virtual:svg-icons-register' // 注册 SVG 图标
 import App from './App.vue'
 import router from './router'
 
+// 引入登录鉴权
+import '@/permission'
+
 //测试环境变量
 // console.log(import.meta.env, '~~~~~~')
 //动态设置标题

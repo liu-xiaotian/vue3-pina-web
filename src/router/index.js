@@ -6,6 +6,10 @@ const publicRoutes = [
   {
     path: '/login',
     component: () => import('@/views/login/index.vue')
+  },
+  {
+    path: '/home',
+    component: () => import('@/views/layout/index.vue')
   }
 ]
 const router = createRouter({

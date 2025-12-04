@@ -1,5 +1,5 @@
 <template>
-  <div>404</div>
+  <div>首页</div>
 </template>
 
 <script setup></script>
