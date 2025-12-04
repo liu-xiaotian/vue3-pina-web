@@ -22,11 +22,11 @@
         <el-input
           placeholder="请输入密码"
           name="password"
-          type="password"
+          :type="pwdType"
           v-model="loginForm.password"
         />
-        <span class="shwo-pwd">
-          <SvgIcon name="eye-open"></SvgIcon>
+        <span class="shwo-pwd" @click="changePwdType">
+          <SvgIcon :name="pwdType === 'password' ? 'eye' : 'eye-open'"></SvgIcon>
         </span>
       </el-form-item>
       <el-form-item>
@@ -76,6 +76,15 @@ const loginRules = ref({
     }
   ]
 })
+
+const pwdType = ref('password')
+const changePwdType = () => {
+  if (pwdType.value === 'password') {
+    pwdType.value = 'text'
+  } else {
+    pwdType.value = 'password'
+  }
+}
 </script>
 <style lang="scss" scoped>
 .container {
