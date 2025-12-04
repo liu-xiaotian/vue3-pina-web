@@ -12,7 +12,7 @@ import App from './App.vue'
 import router from './router'
 
 //测试环境变量
-console.log(import.meta.env, '~~~~~~')
+// console.log(import.meta.env, '~~~~~~')
 //动态设置标题
 document.title = import.meta.env.VITE_APP_TITLE
 

@@ -30,7 +30,7 @@
         </span>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" class="btn">登录</el-button>
+        <el-button type="primary" class="btn" @click="login">登录</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -38,6 +38,8 @@
 <script setup>
 import { ref } from 'vue'
 import SvgIcon from '@/components/SvgIcon/index.vue'
+import { useUserStore } from '@/stores/user'
+let useStore = useUserStore()
 
 //model rules prop
 
@@ -84,6 +86,11 @@ const changePwdType = () => {
   } else {
     pwdType.value = 'password'
   }
+}
+
+//登录逻辑
+const login = () => {
+  useStore.userLogin(loginForm)
 }
 </script>
 <style lang="scss" scoped>
