@@ -10,6 +10,14 @@ const publicRoutes = [
   {
     path: '/home',
     component: () => import('@/views/layout/index.vue')
+  },
+  {
+    path: '/404',
+    component: () => import('@/views/404.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('@/views/404.vue')
   }
 ]
 const router = createRouter({
