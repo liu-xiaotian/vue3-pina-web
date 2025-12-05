@@ -5,7 +5,8 @@ import { setItem, getItem } from '@/utils/storage'
 import router from '@/router/index'
 export const useUserStore = defineStore('user', {
   state: () => ({
-    token: getItem('token')
+    token: getItem('token'),
+    avatar: getItem('avatar')
   }),
   getters: {},
   actions: {
@@ -18,8 +19,11 @@ export const useUserStore = defineStore('user', {
 
       if (res.code === 200) {
         let token = res.data.token
+        let avatar = res.data.avatar
         this.token = token
+        this.avatar = avatar
         setItem('token', token)
+        setItem('avatar', avatar)
         router.push('/home')
         return 'success'
       } else {
