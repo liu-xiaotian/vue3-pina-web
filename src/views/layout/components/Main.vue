@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="app-main">main</div>
+    <div class="app-main">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -20,5 +22,6 @@ export default {
   overflow: hidden;
   padding: 20px;
   box-sizing: border-box;
+  margin-top: 30px;
 }
 </style>
