@@ -3,6 +3,7 @@ import { login } from '@/api/user'
 import md5 from 'md5'
 import { setItem, getItem, clearItem } from '@/utils/storage'
 import router from '@/router/index'
+import { setTimeStamp } from '@/utils/checkTime'
 export const useUserStore = defineStore('user', {
   state: () => ({
     token: getItem('token'),
@@ -24,6 +25,7 @@ export const useUserStore = defineStore('user', {
         this.avatar = avatar
         setItem('token', token)
         setItem('avatar', avatar)
+        setTimeStamp()
         router.push('/home')
         return 'success'
       } else {

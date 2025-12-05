@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { useUserStore } from '@/stores/user'
+import { checkTimeOut } from '@/utils/checkTime'
 
 const BASE_URL = import.meta.env.VITE_BASE_API
 
@@ -15,7 +17,13 @@ const service = axios.create({
 service.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token')
+    let userStore = useUserStore()
     if (token) {
+      if (checkTimeOut()) {
+        //如果token过期则退出登录
+        userStore.logout()
+        return Promise.reject(new Error('token is timeout'))
+      }
       config.headers['Authorization'] = `Bearer ${this.token}`
     }
     return config
