@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-login">
     <el-form class="login-form" :model="loginForm" :rules="loginRules" ref="loginRef">
       <div class="title-container">
         <h3 class="title">用户登录</h3>
@@ -110,7 +110,7 @@ const login = () => {
 }
 </script>
 <style lang="scss" scoped>
-.container {
+.container-login {
   height: 100%;
   width: 100%;
   background-color: $bg;

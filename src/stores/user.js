@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { login } from '@/api/user'
 import md5 from 'md5'
-import { setItem, getItem } from '@/utils/storage'
+import { setItem, getItem, clearItem } from '@/utils/storage'
 import router from '@/router/index'
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -29,6 +29,12 @@ export const useUserStore = defineStore('user', {
       } else {
         return Promise.reject(new Error(res.data.message))
       }
+    },
+    logout() {
+      this.token = null
+      this.avatar = null
+      clearItem()
+      router.push('/login')
     }
   }
 })
