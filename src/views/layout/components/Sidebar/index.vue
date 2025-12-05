@@ -1,7 +1,11 @@
 <template>
-  <div>index</div>
+  <div class="sidebar-container">
+    <Menu></Menu>
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+import Menu from './Menu.vue'
+</script>
 
 <style lang="scss" scoped></style>
